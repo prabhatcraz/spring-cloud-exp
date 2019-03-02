@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: beers
+
+server:
+    port: 8000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    enabled: false
