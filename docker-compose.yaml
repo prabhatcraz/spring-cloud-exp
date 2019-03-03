@@ -1,0 +1,28 @@
+version: '3.6'
+
+services:
+  eureka:
+    image: springio/eureka:0.0.1-SNAPSHOT
+    container_name: eureka
+    ports:
+      - 8761:8761
+
+  gateway:
+    image: springio/gateway:0.0.1-SNAPSHOT
+    container_name: gateway
+    depends_on:
+      - eureka
+    ports:
+      - 8888:8888
+
+  beers:
+    image: springio/beers:0.0.1-SNAPSHOT
+    container_name: beers
+    depends_on:
+      - eureka
+    ports:
+      - 8000:8000
+    links:
+      - eureka
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka:8761/eureka

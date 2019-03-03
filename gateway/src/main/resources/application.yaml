@@ -1,15 +1,21 @@
 spring:
+  application:
+    name: api-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - predicates:
             - Path=/beers/**
           filters:
             - StripPrefix=1
-          uri: "http://localhost:8000/beers"
+          uri: "http://beers:8000/beers"
 eureka:
   instance:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka:8761/eureka
