@@ -12,7 +12,7 @@
   </parent>
   
   <groupId>com.spring.cloud.practice</groupId>
-  <artifactId>spring-cloud-exp</artifactId>
+  <artifactId>rate-limiting-exp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>spring-cloud-exp</name>
   <description>Experiments with Spring Cloud</description>
@@ -28,6 +28,7 @@
     <module>eureka</module>
     <module>gateway</module>
     <module>beers</module>
+    <module>load-generator</module>
   </modules>
   <dependencyManagement>
     <dependencies>
